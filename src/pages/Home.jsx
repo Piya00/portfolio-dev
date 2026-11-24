@@ -1,0 +1,18 @@
+import {Link} from 'react-router-dom';import {useState} from 'react';import Logo from '../components/Logo.jsx';import Dashboard from '../components/Dashboard.jsx';import {GitHub,LinkedIn} from '../components/Icons.jsx';import {profile} from '../data/profile.js';import {projects} from '../data/projects.js';import {techStack} from '../data/skills.js'
+const greet=()=>{const h=new Date().getHours();return h<12?'Good morning':h<18?'Good afternoon':'Good evening'}
+export default function Home(){const[g]=useState(greet)
+return(<>
+<section className="mx-auto grid max-w-7xl items-center gap-12 px-4 pt-14 lg:grid-cols-2 lg:pt-24">
+<div><p className="text-mute">{g}, I'm</p>
+<h1 className="mt-2 text-5xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
+<p className="mt-3 text-xl text-accent">{profile.title}</p>
+<p className="mt-5 max-w-xl text-lg text-mute">{profile.intro}</p>
+<p className="mt-5 inline-flex items-center gap-3 rounded-full border border-line px-4 py-2 text-sm" title={profile.openTo.join(', ')}><span className="relative flex h-2.5 w-2.5"><span className="ping absolute inset-0 rounded-full bg-emerald-400"/><span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400"/></span>Open to Opportunities</p>
+<p className="mt-2 text-sm text-mute">Internships · Entry-level roles · Freelance projects</p>
+<div className="mt-7 flex flex-wrap items-center gap-3"><Link to="/projects" className="btn btn-primary">Explore My Projects</Link><Link to="/contact" className="btn btn-ghost">Contact Me</Link>
+<a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="p-2 text-mute hover:text-ink"><GitHub/></a><a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="p-2 text-mute hover:text-ink"><LinkedIn/></a></div></div>
+<div className="grid gap-6"><div className="mx-auto"><div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-accent/60 bg-surface shadow-[0_0_40px_var(--glow)] sm:h-64 sm:w-64">
+{profile.photo?<img src={import.meta.env.BASE_URL+profile.photo.replace(/^\//,'')} alt="Portrait of Prayash Shrestha" className="absolute inset-0 h-full w-full object-cover object-[center_35%]"/>:<div className="absolute inset-0 grid place-items-center text-center"><div><Logo size={64}/><p className="mt-2 text-xs text-mute">Photo coming soon</p></div></div>}</div></div><Dashboard/></div></section>
+<section className="mx-auto mt-24 max-w-7xl px-4" aria-labelledby="proj"><h2 id="proj" className="text-3xl font-bold">Projects</h2>
+<ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{projects.map(p=><li key={p.slug} className="card flex flex-col overflow-hidden transition hover:border-accent"><Link to={'/projects/'+p.slug} className="aspect-video overflow-hidden"><img src={import.meta.env.BASE_URL+p.image.replace(/^\//,'')} alt={`${p.name} project screenshot`} className="h-full w-full object-cover"/></Link><div className="flex flex-1 flex-col p-5"><span className="text-xs text-mute">{p.category} · {p.status}</span><h3 className="mt-2 text-lg font-semibold">{p.name}</h3><p className="text-sm text-accent">{p.subtitle}</p><p className="mt-3 flex-1 text-sm text-mute">{p.summary}</p><Link to={'/projects/'+p.slug} className="mt-4 text-sm font-semibold text-accent">View Details</Link></div></li>)}</ul></section>
+<section className="mx-auto mt-24 max-w-7xl overflow-hidden px-4" aria-labelledby="tech"><h2 id="tech" className="text-3xl font-bold">Technologies I work with</h2><ul className="mt-6 flex flex-wrap gap-3">{techStack.map(t=><li key={t} className="card px-4 py-2 font-mono text-sm text-mute transition hover:-translate-y-0.5 hover:text-accent">{t}</li>)}</ul></section></>)}

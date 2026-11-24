@@ -1,0 +1,3 @@
+import {Link,useParams} from 'react-router-dom';import {posts} from '../data/blog.js'
+export default function BlogPost(){const{slug}=useParams();const p=posts.find(x=>x.slug===slug);if(!p)return(<section className="mx-auto max-w-3xl px-4 py-24 text-center"><h1 className="text-3xl font-bold">Post not found</h1><Link to="/blog" className="btn btn-ghost mt-6">Back to blog</Link></section>)
+return(<section className="mx-auto max-w-3xl px-4 py-16"><Link to="/blog" className="text-sm text-accent">← Back</Link><h1 className="mt-4 text-4xl font-bold">{p.title}</h1><p className="mt-1 text-xs text-mute">{p.date}</p><p className="mt-6 text-mute leading-7">{p.body}</p></section>)}

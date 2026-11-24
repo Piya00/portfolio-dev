@@ -1,0 +1,1 @@
+export default function Experience(){return(<section className="mx-auto max-w-3xl px-4 py-16"><h1 className="text-4xl font-bold">Experience</h1><p className="mt-3 text-mute">Professional experience will be listed here as it develops. Currently focused on learning and building projects.</p></section>)}

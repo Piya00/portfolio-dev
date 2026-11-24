@@ -1,0 +1,22 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root,[data-theme=dark]{--bg:#070d1f;--surface:#0e1830;--line:#1f2f55;--ink:#f4f7ff;--mute:#9aa8c7;--accent:#5b9bff;--glow:rgba(91,155,255,.22);--footer-bg:#0a1226;--footer-border:#1f2f55;--footer-heading:#f4f7ff;--footer-muted:#9aa8c7;--footer-accent:#5b9bff;--footer-social-border:#314263}
+[data-theme=light]{--bg:#f5f8ff;--surface:#ffffff;--line:#d6e0f5;--ink:#0b1633;--mute:#4a5878;--accent:#1d5fd8;--glow:rgba(29,95,216,.14);--footer-bg:#edf2fc;--footer-border:#d6e0f5;--footer-heading:#0b1633;--footer-muted:#4a5878;--footer-accent:#1d5fd8;--footer-social-border:#c3d0e7}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,"Segoe UI",sans-serif;transition:background .3s,color .3s;overflow-x:hidden}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.glass{background:color-mix(in srgb,var(--surface) 72%,transparent);backdrop-filter:blur(16px);border:1px solid var(--line)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.65rem 1.25rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px var(--glow)}.btn-ghost{border:1px solid var(--line)}
+.site-footer{background:var(--footer-bg);border-color:var(--footer-border);color:var(--footer-heading);transition:background .3s,color .3s,border-color .3s}
+.footer-heading{color:var(--footer-heading)}
+.footer-muted,.footer-bottom{color:var(--footer-muted)}
+.footer-accent{color:var(--footer-accent)}
+.footer-link,.footer-bottom-link{color:var(--footer-muted)}
+.footer-link:hover,.footer-bottom-link:hover{color:var(--footer-accent)}
+.footer-social{border-color:var(--footer-social-border);color:var(--footer-muted)}
+.footer-social:hover{border-color:var(--footer-accent);color:var(--footer-accent)}
+.footer-placeholder{border-color:var(--footer-social-border);color:var(--footer-muted)}
+.footer-bottom{border-color:var(--footer-border)}
+@keyframes float{50%{transform:translateY(-8px)}}@keyframes ping2{75%,100%{transform:scale(2.2);opacity:0}}@keyframes logoDraw{from{stroke-dashoffset:200}to{stroke-dashoffset:0}}
+.float{animation:float 6s ease-in-out infinite}.ping{animation:ping2 2s infinite}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

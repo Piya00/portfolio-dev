@@ -1,0 +1,1 @@
+export const nav=[['Home','/'],['About','/about'],['Projects','/projects'],['Skills','/skills'],['Tech Stack','/tech-stack'],['Education','/education'],['Experience','/experience'],['Services','/services'],['Journey','/journey'],['Workspace','/workspace'],['Blog','/blog'],['FAQ','/faq'],['Contact','/contact']]

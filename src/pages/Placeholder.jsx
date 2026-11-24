@@ -1,0 +1,2 @@
+import {Link,useLocation} from 'react-router-dom'
+export default function Placeholder({title}){const{pathname}=useLocation();return(<section className="mx-auto max-w-3xl px-4 py-24"><h1 className="text-4xl font-bold">{title||pathname.slice(1)}</h1><p className="mt-4 text-mute">This page is planned for a later stage of the build.</p><Link to="/" className="btn btn-ghost mt-6">Back to home</Link></section>)}
